@@ -42,7 +42,13 @@ namespace SimpleNumberEncoder
 
 		static void ShowUsage()
 		{
-			Console.WriteLine("Usage: TODO");
+			Console.WriteLine("Usage: ");
+			Console.WriteLine();
+			Console.WriteLine("Encode a text file with digits into a 'byte' file:");
+			Console.WriteLine("SimpleNumberEncoder.exe -e input.txt output.dat");
+			Console.WriteLine();
+			Console.WriteLine("Decode a 'byte' file into a text file with digits:");
+			Console.WriteLine("SimpleNumberEncoder.exe -d input.dat output.txt");
 		}
 
 		static void Run(string[] args)
@@ -51,7 +57,7 @@ namespace SimpleNumberEncoder
 			string outputFileName = args[1];
 			string mode = args[2];
 
-			if (mode == "-r")
+			if (mode == "-e")
 			{
 				using (var fileIn = File.OpenText(inputFileName))
 				{
@@ -61,7 +67,7 @@ namespace SimpleNumberEncoder
 					}
 				}
 			}
-			else if (mode == "-w")
+			else if (mode == "-d")
 			{
 				using (var fileIn = File.OpenRead(inputFileName))
 				{
